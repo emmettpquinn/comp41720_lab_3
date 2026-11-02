@@ -1,0 +1,64 @@
+[10:53:47 +  0.8s] ===== TEST 1: simulated LLM downtime =====
+[10:53:48 +  1.0s] LLM endpoint DOWN (nothing listening on :9999)
+[10:53:48 +  1.4s] circuit at start: CLOSED
+[10:53:58 + 11.5s] req 1      HTTP 503 in   10029ms  LLM unreachable: All connection attempts failed circuit=CLOSED
+[10:54:08 + 21.5s] req 2      HTTP 503 in    9994ms  LLM unreachable: All connection attempts failed circuit=CLOSED
+[10:54:18 + 31.5s] req 3      HTTP 503 in    9980ms  LLM unreachable: All connection attempts failed circuit=CLOSED
+[10:54:28 + 41.5s] req 4      HTTP 503 in   10026ms  LLM unreachable: All connection attempts failed circuit=CLOSED
+[10:54:38 + 51.5s] req 5      HTTP 503 in   10001ms  LLM unreachable: All connection attempts failed circuit=OPEN
+[10:54:38 + 51.6s] req 6      HTTP 503 in      10ms  circuit_open                                  circuit=OPEN
+[10:54:38 + 51.6s] req 7      HTTP 503 in      15ms  circuit_open                                  circuit=OPEN
+[10:54:38 + 51.6s] req 8      HTTP 503 in      12ms  circuit_open                                  circuit=OPEN
+[10:54:53 + 66.6s] ===== TEST 2: rate limiting (flood of concurrent requests) =====
+[10:54:53 + 66.8s] LLM endpoint DOWN (nothing listening on :9999)
+[10:54:57 + 69.9s] LLM endpoint UP on :9999 -> Ollama, max 2 concurrent (excess -> 429)
+[10:54:57 + 70.3s] circuit not CLOSED yet - waiting for it to recover before flooding
+[10:54:59 + 72.3s] probe      HTTP 200 in    2014ms  "I'm here to provide information and assist with q circuit=CLOSED
+[10:54:59 + 72.3s] --- burst 1: 15 concurrent requests
+[10:54:59 + 72.6s] b1-01      HTTP 200 in     308ms  "I'm here to provide information and assist with q circuit=CLOSED
+[10:54:59 + 72.8s] b1-02      HTTP 200 in     478ms  "I'm ready to assist you."                    circuit=CLOSED
+[10:55:00 + 73.1s] b1-03      HTTP 200 in     827ms  "I'm ready to assist you, please provide more info circuit=CLOSED
+[10:55:00 + 73.5s] b1-04      HTTP 200 in    1140ms  "I'm here to provide information and help with you circuit=CLOSED
+[10:55:01 + 74.2s] b1-05      HTTP 200 in    1856ms  "I'm ready to help with your question or topic." circuit=CLOSED
+[10:55:01 + 74.3s] b1-07      HTTP 200 in    1998ms  "I'm ready to assist you. What's on your mind?" circuit=CLOSED
+[10:55:03 + 76.2s] b1-12      HTTP 429 in    3793ms  LLM returned 429                              circuit=CLOSED
+[10:55:03 + 76.2s] b1-14      HTTP 429 in    3800ms  LLM returned 429                              circuit=CLOSED
+[10:55:03 + 76.2s] b1-08      HTTP 429 in    3844ms  LLM returned 429                              circuit=CLOSED
+[10:55:03 + 76.2s] b1-09      HTTP 429 in    3861ms  LLM returned 429                              circuit=OPEN
+[10:55:03 + 76.2s] b1-13      HTTP 429 in    3850ms  LLM returned 429                              circuit=OPEN
+[10:55:03 + 76.2s] b1-11      HTTP 429 in    3867ms  LLM returned 429                              circuit=OPEN
+[10:55:03 + 76.2s] b1-15      HTTP 429 in    3855ms  LLM returned 429                              circuit=OPEN
+[10:55:03 + 76.4s] b1-06      HTTP 200 in    4062ms  "I'm here to provide information and assist with q circuit=OPEN
+[10:55:03 + 76.5s] b1-10      HTTP 200 in    4134ms  "I'm ready to help."                          circuit=OPEN
+[10:55:03 + 76.5s] burst 1 result: {200: 8, 429: 7}  circuit=OPEN
+[10:55:03 + 76.5s] --- burst 2: 15 concurrent requests
+[10:55:03 + 76.6s] b2-02      HTTP 503 in      71ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.7s] b2-05      HTTP 503 in      82ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.7s] b2-01      HTTP 503 in      60ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.7s] b2-08      HTTP 503 in      97ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.7s] b2-09      HTTP 503 in     109ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.7s] b2-04      HTTP 503 in     117ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.8s] b2-14      HTTP 503 in     202ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.8s] b2-07      HTTP 503 in     260ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.8s] b2-15      HTTP 503 in     255ms  circuit_open                                  circuit=OPEN
+[10:55:03 + 76.9s] b2-03      HTTP 503 in     302ms  circuit_open                                  circuit=OPEN
+[10:55:04 + 76.9s] b2-11      HTTP 503 in     296ms  circuit_open                                  circuit=OPEN
+[10:55:04 + 76.9s] b2-12      HTTP 503 in     240ms  circuit_open                                  circuit=OPEN
+[10:55:04 + 76.9s] b2-06      HTTP 503 in     336ms  circuit_open                                  circuit=OPEN
+[10:55:04 + 76.9s] b2-10      HTTP 503 in     344ms  circuit_open                                  circuit=OPEN
+[10:55:04 + 76.9s] b2-13      HTTP 503 in     134ms  circuit_open                                  circuit=OPEN
+[10:55:04 + 76.9s] burst 2 result: {503: 15}  circuit=OPEN
+[10:55:04 + 76.9s] ===== TEST 3: recovery =====
+[10:55:04 + 77.2s] LLM endpoint DOWN (nothing listening on :9999)
+[10:55:07 + 80.6s] LLM endpoint UP on :9999 -> Ollama, max 100 concurrent (excess -> 429)
+[10:55:07 + 80.7s] circuit at start: OPEN
+[10:55:07 + 80.7s] while OPEN HTTP 503 in      13ms  circuit_open                                  circuit=OPEN
+[10:55:09 + 82.8s] while OPEN HTTP 503 in      13ms  circuit_open                                  circuit=OPEN
+[10:55:11 + 84.8s] while OPEN HTTP 503 in      15ms  circuit_open                                  circuit=OPEN
+[10:55:13 + 86.9s] circuit is now HALF_OPEN - next request is the trial
+[10:55:15 + 88.5s] trial      HTTP 200 in    1616ms  "I'm ready to help."                          circuit=CLOSED
+[10:55:15 + 88.7s] after 1    HTTP 200 in     245ms  "I'm here to provide information and assist with i circuit=CLOSED
+[10:55:17 + 90.0s] after 2    HTTP 200 in     209ms  "I'm here to provide information and help with you circuit=CLOSED
+[10:55:18 + 91.3s] after 3    HTTP 200 in     306ms  "I'm here to help with information and tasks.\n\nI circuit=CLOSED
+[10:55:19 + 92.5s] after 4    HTTP 200 in     171ms  "I'm ready to help with your question."       circuit=CLOSED
+[10:55:20 + 93.8s] after 5    HTTP 200 in     262ms  "I'm here to provide information and answer questi circuit=CLOSED

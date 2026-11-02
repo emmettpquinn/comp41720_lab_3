@@ -1,0 +1,46 @@
+10:54:59.372 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:54:59.736 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:54:59.915 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:00.099 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.100 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.121 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.123 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.137 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.138 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.153 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.158 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.161 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.164 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.165 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:00.267 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:00.579 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:01.172 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.201 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.219 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.231 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.257 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.264 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.275 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.283 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.290 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:01.302 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:01.451 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:03.265 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:03.277 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:03.285 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:03.312 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:03.319 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:03.325 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:03.334 WARNING PROXY: 2/2 in flight - 429 Too Many Requests
+10:55:03.508 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:03.598 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:15.582 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:15.858 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:17.073 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:18.398 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:19.577 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:55:20.878 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:58:04.158 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:58:06.720 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:58:09.079 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+10:58:13.549 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"

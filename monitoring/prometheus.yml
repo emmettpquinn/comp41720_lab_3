@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 5s  # short so the dashboard reacts quickly while testing
+
+scrape_configs:
+  - job_name: llm-service
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["host.docker.internal:8080"]  # the FastAPI service running on the host
